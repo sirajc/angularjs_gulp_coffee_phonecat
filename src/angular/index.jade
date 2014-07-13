@@ -1,0 +1,12 @@
+doctype html
+html(lang="en" ng-app="app")
+head
+  meta(charset="utf-8")
+  title Angular {{ 2 + 2 }} Phone Gallery
+  link(rel="stylesheet" href="css/vendor.css")
+  link(rel="stylesheet" href="css/apps.css")
+  body
+    .view-container
+    .view-frame(ng-view)
+    script(src="js/vendor.js")
+    script(src="js/angular-app.js")

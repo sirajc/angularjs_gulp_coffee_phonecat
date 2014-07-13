@@ -1,0 +1,30 @@
+{
+  "name": "Gulp AngularJS CoffeeScript and ng-classify",
+  "version": "0.0.1",
+  "authors": [
+    "Sirajuddin <sirajuddin.c@gmail.com>"
+  ],
+  "description": "AngularJS tutorials provide a good phonecat application to learn AngularJS. We have re-written it in cool CoffeeScript with ng-classify, SASS and awesome gulp to build, pre-process, watch and everything",
+  "main": "bower.json",
+  "keywords": [
+    "CoffeeScript",
+	"AngularJS",
+	"Gulp",
+	
+  ],
+  "license": "MIT",
+  "homepage": "https://plus.google.com/u/0/+SirajuddinChoudhary/about",
+  "private": true,
+  "ignore": [
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "1.2.16",
+    "angular-route": "1.2.16",
+    "angular-resource": "1.2.16",
+    "angular-animate": "1.2.16"
+  },
+  "appPath": "app",
+  "devDependencies": {}
+}

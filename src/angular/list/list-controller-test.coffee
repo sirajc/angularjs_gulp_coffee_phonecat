@@ -8,12 +8,16 @@ describe 'Phone List Controllers', ->
   beforeEach module 'app'
 
   describe 'phoneListController', ->
+    scope = {}
+    ctrl = {}
+    $httpBackend = {}
+    
     beforeEach inject (_$httpBackend_, $rootScope, $controller) ->
       $httpBackend = _$httpBackend_
       $httpBackend.expectGET 'phones/phones.json' 
         .respond [{name: 'Nexus S'}, {name: 'Motorola DROID'}]
       scope = $rootScope.$new()
-      ctrl = $controller 'PhoneListCtrl', {$scope: scope}
+      ctrl = $controller 'phoneListController', {$scope: scope}
       return
 
     it 'should create "phones" model with 2 phones fetched from xhr', -> 

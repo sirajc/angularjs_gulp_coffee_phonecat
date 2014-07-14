@@ -8,9 +8,8 @@
   "main": "bower.json",
   "keywords": [
     "CoffeeScript",
-	"AngularJS",
-	"Gulp",
-	
+    "AngularJS",
+    "Gulp"
   ],
   "license": "MIT",
   "homepage": "https://plus.google.com/u/0/+SirajuddinChoudhary/about",
@@ -26,5 +25,7 @@
     "angular-animate": "1.2.16"
   },
   "appPath": "app",
-  "devDependencies": {}
+  "devDependencies": {
+    "angular-mocks": "1.2.16"
+  }
 }

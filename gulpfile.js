@@ -15,7 +15,8 @@ var gulp = require('gulp'),
 	plumber = require('gulp-plumber'),
 	gutil = require('gulp-util'),
 	minifyCSS = require('gulp-minify-css'),
-	prefix = require('gulp-autoprefixer');
+	prefix = require('gulp-autoprefixer'),
+	karma = require('gulp-karma');
 
 /********* ENVIRONMENT SETUP *****************/
 var env = process.env.NODE_ENV || 'development' ;
@@ -28,7 +29,8 @@ var bowerLibs = [
 					'bower_components/angular/angular.js',
 					'bower_components/angular-route/angular-route.js',
 					'bower_components/angular-resource/angular-resource.js',
-					'bower_components/angular-animate/angular-animate.js'
+					'bower_components/angular-animate/angular-animate.js',
+					'bower_components/angular-mocks/angular-mocks.js'
 				];
 
 if(isProduction){
@@ -46,6 +48,7 @@ var srcDir = 'src';
 var src = {
 	jadeFiles: srcDir + '/angular/**/*.jade',
 	coffeeFiles: [srcDir + '/angular/**/*.coffee', '!' + srcDir + '/angular/**/*test.coffee'],
+	coffeeTestFiles: srcDir + '/angular/**/*test.coffee',
 	sassFiles: [srcDir + '/sass/**/*.scss', srcDir + '/sass/**/*.sass'],
 	mainSassFile: srcDir + '/sass/apps.sass',
 	cssLibFiles: 'css-libs/**/*.css'
@@ -71,6 +74,7 @@ var output = {
 	file: {
 		vendorjs: 'vendor.js',
 		angularjs: 'angular-app.js', 
+		karmaTestJs: 'angular-app.test.js',
 		vendorcss: 'vendor.css',
 		css: 'apps.css',
 		htmlIndex: 'index.html'
@@ -137,6 +141,16 @@ gulp.task('coffee', function () {
 		.pipe(connect.reload());
 });
 
+gulp.task('coffee-test', function () {
+	return gulp
+		.src(src.coffeeTestFiles)
+		.pipe(plumber(logError))
+		.pipe(coffee({bare: true}))
+		.pipe(concat(output.file.karmaTestJs))
+		.pipe(gulp.dest(output.dir.js))
+		.pipe(connect.reload());
+});
+
 gulp.task('sass', function(){
 	var config = {};
 
@@ -188,6 +202,7 @@ gulp.task('watch', function(){
 	gulp.watch(src.jadeFiles, ['jade']);
 	gulp.watch(src.sassFiles, ['sass']);
 	gulp.watch(src.coffeeFiles,  ['coffee'] );
+	gulp.watch(src.coffeeTestFiles,  ['coffee-test'] );
 	gulp.watch(assets.jsonFiles,  ['assets-json'] );
 	gulp.watch(assets.imageFiles,  ['assets-image'] );
 });
@@ -205,7 +220,7 @@ gulp.task('connect', function() {
 gulp.task('build', function(callback) {
 	gutil.log(gutil.colors.green('Building for '+ env.toUpperCase() + ' environment'));
   	runSequence('clean',
-              ['jade', 'coffee', 'sass', 'css-libs', 'bower', 'assets-json', 'assets-image'],
+              ['jade', 'coffee', 'coffee-test' ,'sass', 'css-libs', 'bower', 'assets-json', 'assets-image'],
               callback);
 });
 
@@ -214,6 +229,23 @@ gulp.task('default', function(callback) {
               	'watch',
               	'connect',
               	callback);
+});
+
+// Karma
+gulp.task('karma', function () {
+  return gulp.src(['no need to supply files because everything is in config file'])
+    .pipe(karma({
+      configFile: 'karma.conf.js',
+      action: 'watch'
+    }).on('error', logError));
+});
+
+gulp.task('karma-ci', function () {
+  return gulp.src(['no need to supply files because everything is in config file'])
+    .pipe(karma({
+      configFile: 'karma-compiled.conf.js',
+      action: 'run'
+    }).on('error', logError));
 });
 
 

@@ -1,13 +1,4 @@
 {
-  "name": "gulp-angularjs-coffescript-ng-classify",
-  "version": "0.0.1",
-  "description": "AngularJS tutorials provide a good phonecat application to learn AngularJS. We have re-written it in cool CoffeeScript with ng-classify, SASS and awesome gulp to build, pre-process, watch and everything",
-  "author": {
-    "name": "Sirajuddin",
-    "email": "sirajuddin.c@gmail.com",
-    "url": "https://plus.google.com/u/0/+SirajuddinChoudhary/about"
-  },
-  "license": "MIT",
   "devDependencies": {
     "gulp": "~3.8.5",
     "gulp-jade": "~0.6.1",
@@ -30,6 +21,8 @@
     "gulp-minify-css": "~0.3.6",
     "gulp-autoprefixer": "0.0.8",
     "karma": "~0.12.17",
-    "gulp-karma": "0.0.4"
+    "gulp-karma": "0.0.4",
+    "karma-jasmine": "~0.1.5",
+    "karma-chrome-launcher": "~0.1.4"
   }
 }

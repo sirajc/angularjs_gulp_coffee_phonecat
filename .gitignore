@@ -1,3 +1,5 @@
 node_modules
 bower_components
 builds
+karma_html
+.idea

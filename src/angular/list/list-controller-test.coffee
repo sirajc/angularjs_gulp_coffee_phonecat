@@ -1,4 +1,4 @@
-describe 'Phone List Controllers', ->
+ddescribe 'Phone List Controllers', ->
   beforeEach ->
     this.addMatchers
       toEqualData: (expected) ->
@@ -33,6 +33,10 @@ describe 'Phone List Controllers', ->
         .toBe 'age'
       return
 
+    it 'should just pass', ->
+      expect true
+        .toBe true
+      return
     return
     
   return

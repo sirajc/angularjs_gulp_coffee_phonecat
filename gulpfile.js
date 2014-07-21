@@ -16,7 +16,9 @@ var gulp = require('gulp'),
 	gutil = require('gulp-util'),
 	minifyCSS = require('gulp-minify-css'),
 	prefix = require('gulp-autoprefixer'),
-	karma = require('gulp-karma');
+	karma = require('gulp-karma'),
+    sourcemaps = require('gulp-sourcemaps')
+    ;
 
 /********* ENVIRONMENT SETUP *****************/
 var env = process.env.NODE_ENV || 'development' ;
@@ -130,10 +132,10 @@ gulp.task('coffee', function () {
 	return gulp
 		.src(src.coffeeFiles)
 		.pipe(plumber(logError))
-		.pipe(ngClassify(options))
+        .pipe(ngClassify(options))
 		.pipe(gulp.dest(stage.dir.ngClassify))
-		.pipe(coffee({bare: true}))
-		.pipe(ngmin())
+        .pipe(coffee({bare: true}))
+        .pipe(ngmin())
 		.pipe(gulp.dest(stage.dir.angularjs))
 		.pipe(gulpif(isProduction , uglify({outSourceMap: outputSourceMapForJS})))
 		.pipe(concat(output.file.angularjs))
@@ -145,10 +147,12 @@ gulp.task('coffee-test', function () {
 	return gulp
 		.src(src.coffeeTestFiles)
 		.pipe(plumber(logError))
+        .pipe(sourcemaps.init())
 		.pipe(coffee({bare: true}))
+        .pipe(sourcemaps.write())
+        .pipe(gulp.dest(stage.dir.angularjs))
 		.pipe(concat(output.file.karmaTestJs))
 		.pipe(gulp.dest(output.dir.js))
-		.pipe(connect.reload());
 });
 
 gulp.task('sass', function(){
@@ -237,14 +241,6 @@ gulp.task('karma', function () {
     .pipe(karma({
       configFile: 'karma.conf.js',
       action: 'watch'
-    }).on('error', logError));
-});
-
-gulp.task('karma-ci', function () {
-  return gulp.src(['no need to supply files because everything is in config file'])
-    .pipe(karma({
-      configFile: 'karma-compiled.conf.js',
-      action: 'run'
     }).on('error', logError));
 });
 

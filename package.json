@@ -23,6 +23,9 @@
     "karma": "~0.12.17",
     "gulp-karma": "0.0.4",
     "karma-jasmine": "~0.1.5",
-    "karma-chrome-launcher": "~0.1.4"
+    "karma-chrome-launcher": "~0.1.4",
+    "karma-coverage": "~0.2.4",
+    "karma-html-reporter": "~0.2.3",
+    "gulp-sourcemaps": "~1.1.0"
   }
 }

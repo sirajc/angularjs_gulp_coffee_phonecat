@@ -1,4 +1,4 @@
-ddescribe 'Filters', ->
+describe 'Filters', ->
   beforeEach module 'app'
 
   describe 'checkMark', ->

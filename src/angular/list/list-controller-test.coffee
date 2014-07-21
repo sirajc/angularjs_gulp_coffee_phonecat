@@ -1,8 +1,8 @@
-ddescribe 'Phone List Controllers', ->
+describe 'Phone List Controllers', ->
   beforeEach ->
     this.addMatchers
       toEqualData: (expected) ->
-        return angular.equals(this.actual, expected)
+        angular.equals(this.actual, expected)
     return
   
   beforeEach module 'app'

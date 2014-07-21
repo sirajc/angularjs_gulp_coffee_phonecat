@@ -5,7 +5,7 @@ AngularJS tutorials provide a good phonecat application to learn AngularJS. We h
 ## Copyright and license
 
 	Based on original AngularJS app https://github.com/angular/angular-phonecat
-	All code credits to them
+	All code credits to AngularJS team
 
 	The MIT License
 

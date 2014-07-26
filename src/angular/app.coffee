@@ -1,19 +1,21 @@
-class App extends App
-  constructor: ->
-    return [
-      'ngRoute',
-      'ngResource',
-      'ngAnimate'
-    ]
 
-class Routes extends Config
-  constructor: ($routeProvider) ->
+angular.module 'app', [
+  'ngRoute',
+  'ngResource',
+  'ngAnimate'
+]
+
+### @ngInject ###
+Routes = ($routeProvider) ->
     $routeProvider
     .when '/phones',
       templateUrl: 'list/list.html',
-      controller: 'phoneListController'
+      controller: 'PhoneListController'
     .when '/phones/:phoneId',
       templateUrl: 'detail/detail.html',
-      controller: 'phoneDetailController'
+      controller: 'PhoneDetailController'
     .otherwise
         redirectTo: '/phones'
+
+angular.module 'app'
+  .config(Routes)

@@ -1,5 +1,12 @@
-class phone extends Factory
-	constructor: ($resource) ->
-		return $resource('phones/:phoneId.json', {}, {
-			query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
-		});
+ThisIsNgAnnotateHack = 'IgnoreThisLine'
+
+### @ngInject ###
+Phone = ($resource) ->
+    return $resource('phones/:phoneId.json', {}, {
+      query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
+  });
+
+angular.module 'app'
+  .factory('Phone', Phone)
+
+

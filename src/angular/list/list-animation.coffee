@@ -1,5 +1,4 @@
-class animateUp
-  constructor: (element, className, done) ->
+animateUp = (element, className, done) ->
       if className != 'active' then return
       element.css {
         position: 'absolute',
@@ -7,7 +6,7 @@ class animateUp
         left: 0,
         display: 'block'
       }
-      jQuery element 
+      jQuery element
         .animate {
           top: 0
         }, done
@@ -15,15 +14,14 @@ class animateUp
       return (cancel) ->
           if cancel then element.stop(); return
 
-class animateDown
-  constructor: (element, className, done) ->
+animateDown = (element, className, done) ->
     if className != 'active' then return
     element.css {
       position: 'absolute',
       left: 0,
       top: 0
     }
-    jQuery element 
+    jQuery element
       .animate {
         top: -500
       }, done
@@ -31,9 +29,12 @@ class animateDown
     return (cancel) ->
       if cancel then element.stop(); return
 
-class phone extends Animation
-  constructor: -> 
+phone = ->
     return {
       addClass: animateUp,
       removeClass: animateDown
     }
+
+angular.module 'app'
+  .animation('.phone', phone)
+

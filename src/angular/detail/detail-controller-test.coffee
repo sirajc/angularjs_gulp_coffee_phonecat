@@ -22,7 +22,7 @@ describe 'Phone Detail Controllers', ->
           .respond xyzPhoneData()
       $routeParams.phoneId = 'xyz'
       scope = $rootScope.$new()
-      ctrl = $controller 'phoneDetailController', $scope: scope
+      ctrl = $controller 'PhoneDetailController', $scope: scope
       return;
 
 

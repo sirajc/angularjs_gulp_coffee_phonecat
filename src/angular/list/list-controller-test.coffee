@@ -17,7 +17,7 @@ describe 'Phone List Controllers', ->
       $httpBackend.expectGET 'phones/phones.json' 
         .respond [{name: 'Nexus S'}, {name: 'Motorola DROID'}]
       scope = $rootScope.$new()
-      ctrl = $controller 'phoneListController', {$scope: scope}
+      ctrl = $controller 'PhoneListController', {$scope: scope}
       return
 
     it 'should create "phones" model with 2 phones fetched from xhr', -> 

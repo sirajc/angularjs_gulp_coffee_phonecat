@@ -1,6 +1,6 @@
 var gulp = require('gulp'),
 	jade = require('gulp-jade'),
-	browserify = require('gulp-browserify'),
+	//browserify = require('gulp-browserify'),
 	uglify = require('gulp-uglify'),
 	gulpif = require('gulp-if'),
 	sass = require('gulp-sass'),
@@ -8,6 +8,7 @@ var gulp = require('gulp'),
 	coffee = require('gulp-coffee'),
 	ngClassify = require('gulp-ng-classify'),
 	ngmin = require('gulp-ngmin'),
+    ngAnnotate = require('gulp-ng-annotate'),
 	clean = require('gulp-clean'),
 	concat = require('gulp-concat'),
 	clean = require('gulp-clean'),
@@ -132,10 +133,8 @@ gulp.task('coffee', function () {
 	return gulp
 		.src(src.coffeeFiles)
 		.pipe(plumber(logError))
-        .pipe(ngClassify(options))
-		.pipe(gulp.dest(stage.dir.ngClassify))
         .pipe(coffee({bare: true}))
-        .pipe(ngmin())
+        .pipe(ngAnnotate({remove: true,add: true,single_quotes: true}))
 		.pipe(gulp.dest(stage.dir.angularjs))
 		.pipe(gulpif(isProduction , uglify({outSourceMap: outputSourceMapForJS})))
 		.pipe(concat(output.file.angularjs))

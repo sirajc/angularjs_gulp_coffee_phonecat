@@ -11,7 +11,7 @@
     .span10
       // Body content
       ul.phones
-        li(ng-repeat="phone in phones | filter:query | orderBy:orderProp").thumbnail.phone-listing
+        li(ng-repeat="phone in phoneList.phones | filter:query | orderBy:orderProp").thumbnail.phone-listing
           a(href="#/phones/{{phone.id}}").thumb
             img(ng-src="{{phone.imageUrl}}")
           a(href="#/phones/{{phone.id}}") {{phone.name}}

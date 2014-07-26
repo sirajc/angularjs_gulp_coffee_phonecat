@@ -11,25 +11,27 @@ describe 'Phone List Controllers', ->
     scope = {}
     ctrl = {}
     $httpBackend = {}
+    phoneList = ->
+      [{name: 'Nexus S'}, {name: 'Motorola DROID'}]
     
     beforeEach inject (_$httpBackend_, $rootScope, $controller) ->
       $httpBackend = _$httpBackend_
       $httpBackend.expectGET 'phones/phones.json' 
-        .respond [{name: 'Nexus S'}, {name: 'Motorola DROID'}]
+        .respond phoneList()
       scope = $rootScope.$new()
       ctrl = $controller 'PhoneListController', {$scope: scope}
       return
 
     it 'should create "phones" model with 2 phones fetched from xhr', -> 
-      expect scope.phones 
+      expect ctrl.phones
         .toEqualData []
       $httpBackend.flush()
-      expect scope.phones 
-        .toEqualData [{name: 'Nexus S'}, {name: 'Motorola DROID'}]
+      expect ctrl.phones
+        .toEqualData phoneList()
       return
 
     it 'should set the default value of orderProp model', ->
-      expect scope.orderProp 
+      expect ctrl.orderProp
         .toBe 'age'
       return
 

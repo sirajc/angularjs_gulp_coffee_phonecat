@@ -27,10 +27,10 @@ describe 'Phone Detail Controllers', ->
 
 
     it 'should fetch phone detail', ->
-      expect scope.phone
+      expect ctrl.phone
         .toEqualData {}
       $httpBackend.flush()
-      expect scope.phone
+      expect ctrl.phone
         .toEqualData xyzPhoneData()
       return
     return

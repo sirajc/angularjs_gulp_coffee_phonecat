@@ -1,9 +1,9 @@
 ThisIsNgAnnotateHack = 'IgnoreThisLine'
 
 ### @ngInject ###
-PhoneListController = ($scope, Phone) ->
-  $scope.phones = Phone.query()
-  $scope.orderProp = 'age'
+PhoneListController = (Phone) ->
+  @phones = Phone.query()
+  @orderProp = 'age'
   return
 
 angular.module 'app'

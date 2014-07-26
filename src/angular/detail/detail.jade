@@ -1,88 +1,88 @@
 .phone-images
-  img.phone(ng-src='{{img}}', ng-repeat='img in phone.images', ng-class='{active: mainImageUrl==img}')
-h1 {{phone.name}}
-p {{phone.description}}
+  img.phone(ng-src='{{img}}', ng-repeat='img in phoneDetail.phone.images', ng-class='{active: phoneDetail.mainImageUrl==img}')
+h1 {{phoneDetail.phone.name}}
+p {{phoneDetail.phone.description}}
 ul.phone-thumbs
-  li(ng-repeat='img in phone.images')
-    img(ng-src='{{img}}', ng-click='setImage(img)')
+  li(ng-repeat='img in phoneDetail.phone.images')
+    img(ng-src='{{img}}', ng-click='phoneDetail.setImage(img)')
 ul.specs
   li
     span Availability and Networks
     dl
       dt Availability
-      dd(ng-repeat='availability in phone.availability') {{availability}}
+      dd(ng-repeat='availability in phoneDetail.phone.availability') {{availability}}
   li
     span Battery
     dl
       dt Type
-      dd {{phone.battery.type}}
+      dd {{phoneDetail.phone.battery.type}}
       dt Talk Time
-      dd {{phone.battery.talkTime}}
+      dd {{phoneDetail.phone.battery.talkTime}}
       dt Standby time (max)
-      dd {{phone.battery.standbyTime}}
+      dd {{phoneDetail.phone.battery.standbyTime}}
   li
     span Storage and Memory
     dl
       dt RAM
-      dd {{phone.storage.ram}}
+      dd {{phoneDetail.phone.storage.ram}}
       dt Internal Storage
-      dd {{phone.storage.flash}}
+      dd {{phoneDetail.phone.storage.flash}}
   li
     span Connectivity
     dl
       dt Network Support
-      dd {{phone.connectivity.cell}}
+      dd {{phoneDetail.phone.connectivity.cell}}
       dt WiFi
-      dd {{phone.connectivity.wifi}}
+      dd {{phoneDetail.phone.connectivity.wifi}}
       dt Bluetooth
-      dd {{phone.connectivity.bluetooth}}
+      dd {{phoneDetail.phone.connectivity.bluetooth}}
       dt Infrared
-      dd {{phone.connectivity.infrared | checkmark}}
+      dd {{phoneDetail.phone.connectivity.infrared | checkmark}}
       dt GPS
-      dd {{phone.connectivity.gps | checkmark}}
+      dd {{phoneDetail.phone.connectivity.gps | checkmark}}
   li
     span Android
     dl
       dt OS Version
-      dd {{phone.android.os}}
+      dd {{phoneDetail.phone.android.os}}
       dt UI
-      dd {{phone.android.ui}}
+      dd {{phoneDetail.phone.android.ui}}
   li
     span Size and Weight
     dl
       dt Dimensions
-      dd(ng-repeat='dim in phone.sizeAndWeight.dimensions') {{dim}}
+      dd(ng-repeat='dim in phoneDetail.phone.sizeAndWeight.dimensions') {{dim}}
       dt Weight
-      dd {{phone.sizeAndWeight.weight}}
+      dd {{phoneDetail.phone.sizeAndWeight.weight}}
   li
     span Display
     dl
       dt Screen size
-      dd {{phone.display.screenSize}}
+      dd {{phoneDetail.phone.display.screenSize}}
       dt Screen resolution
-      dd {{phone.display.screenResolution}}
+      dd {{phoneDetail.phone.display.screenResolution}}
       dt Touch screen
-      dd {{phone.display.touchScreen | checkmark}}
+      dd {{phoneDetail.phone.display.touchScreen | checkmark}}
   li
     span Hardware
     dl
       dt CPU
-      dd {{phone.hardware.cpu}}
+      dd {{phoneDetail.phone.hardware.cpu}}
       dt USB
-      dd {{phone.hardware.usb}}
+      dd {{phoneDetail.phone.hardware.usb}}
       dt Audio / headphone jack
-      dd {{phone.hardware.audioJack}}
+      dd {{phoneDetail.phone.hardware.audioJack}}
       dt FM Radio
-      dd {{phone.hardware.fmRadio | checkmark}}
+      dd {{phoneDetail.phone.hardware.fmRadio | checkmark}}
       dt Accelerometer
-      dd {{phone.hardware.accelerometer | checkmark}}
+      dd {{phoneDetail.phone.hardware.accelerometer | checkmark}}
   li
     span Camera
     dl
       dt Primary
-      dd {{phone.camera.primary}}
+      dd {{phoneDetail.phone.camera.primary}}
       dt Features
-      dd {{phone.camera.features.join(', ')}}
+      dd {{phoneDetail.phone.camera.features.join(', ')}}
   li
     span Additional Features
-    dd {{phone.additionalFeatures}}
+    dd {{phoneDetail.phone.additionalFeatures}}

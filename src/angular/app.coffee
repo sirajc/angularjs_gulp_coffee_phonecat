@@ -10,10 +10,10 @@ Routes = ($routeProvider) ->
     $routeProvider
     .when '/phones',
       templateUrl: 'list/list.html',
-      controller: 'PhoneListController'
+      controller: 'PhoneListController as phoneList'
     .when '/phones/:phoneId',
       templateUrl: 'detail/detail.html',
-      controller: 'PhoneDetailController'
+      controller: 'PhoneDetailController as phoneDetail'
     .otherwise
         redirectTo: '/phones'
 

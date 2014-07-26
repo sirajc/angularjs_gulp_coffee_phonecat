@@ -1,21 +1,23 @@
 
-angular.module 'app', [
+angular.module 'phonecatApp', [
   'ngRoute',
   'ngResource',
-  'ngAnimate'
+  'ngAnimate',
+  'phone.detail',
+  'phone.list'
 ]
 
 ### @ngInject ###
 Routes = ($routeProvider) ->
     $routeProvider
     .when '/phones',
-      templateUrl: 'list/list.html',
+      templateUrl: 'phone/list/list.html',
       controller: 'PhoneListController as phoneList'
     .when '/phones/:phoneId',
-      templateUrl: 'detail/detail.html',
+      templateUrl: 'phone/detail/detail.html',
       controller: 'PhoneDetailController as phoneDetail'
     .otherwise
         redirectTo: '/phones'
 
-angular.module 'app'
+angular.module 'phonecatApp'
   .config(Routes)

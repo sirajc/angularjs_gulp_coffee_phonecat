@@ -5,7 +5,7 @@ describe 'Phone Detail Controllers', ->
         angular.equals(this.actual, expected)
     return
 
-  beforeEach module 'app'
+  beforeEach module 'phonecatApp'
 
   describe 'Detail Controller', ->
     scope = {}

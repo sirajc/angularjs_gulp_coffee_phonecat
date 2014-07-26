@@ -6,7 +6,5 @@ Phone = ($resource) ->
       query: {method:'GET', params:{phoneId:'phones'}, isArray:true}
   });
 
-angular.module 'app'
+angular.module 'list.service', []
   .factory('Phone', Phone)
-
-

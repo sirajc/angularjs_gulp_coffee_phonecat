@@ -1,5 +1,5 @@
 describe 'service', ->
-  beforeEach module 'app'
+  beforeEach module 'phonecatApp'
 
   it 'check the existence of Phone factory', inject (Phone) ->
     expect Phone

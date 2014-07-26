@@ -1,5 +1,5 @@
 describe 'Filters', ->
-  beforeEach module 'app'
+  beforeEach module 'common.checkmark'
 
   describe 'checkMark', ->
     it 'should convert true to \u2713',

@@ -12,7 +12,7 @@ PhoneDetailController = ($routeParams, Phone) ->
     return
   return
 
-angular.module 'app'
+angular.module 'phone.detail', ['common.checkmark']
   .controller 'PhoneDetailController', PhoneDetailController
 
 

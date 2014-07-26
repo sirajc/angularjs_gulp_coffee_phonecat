@@ -7,7 +7,7 @@ textCheckmark = ->
     return (input) ->
       if(input) then 'Y' else 'X'
 
-angular.module 'app'
+angular.module 'common.checkmark', []
   .filter('checkmark', checkmark)
   .filter('textCheckmark', textCheckmark)
 

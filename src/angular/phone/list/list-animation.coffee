@@ -35,6 +35,6 @@ phone = ->
       removeClass: animateDown
     }
 
-angular.module 'app'
+angular.module 'list.animation', []
   .animation('.phone', phone)
 

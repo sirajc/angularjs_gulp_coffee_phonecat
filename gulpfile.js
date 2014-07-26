@@ -133,7 +133,7 @@ gulp.task('coffee', function () {
 	return gulp
 		.src(src.coffeeFiles)
 		.pipe(plumber(logError))
-        .pipe(coffee({bare: true}))
+        .pipe(coffee({bare: false}))
         .pipe(ngAnnotate({remove: true,add: true,single_quotes: true}))
 		.pipe(gulp.dest(stage.dir.angularjs))
 		.pipe(gulpif(isProduction , uglify({outSourceMap: outputSourceMapForJS})))
@@ -147,7 +147,7 @@ gulp.task('coffee-test', function () {
 		.src(src.coffeeTestFiles)
 		.pipe(plumber(logError))
         .pipe(sourcemaps.init())
-		.pipe(coffee({bare: true}))
+		.pipe(coffee({bare: false}))
         .pipe(sourcemaps.write())
         .pipe(gulp.dest(stage.dir.angularjs))
 		.pipe(concat(output.file.karmaTestJs))
@@ -168,7 +168,7 @@ gulp.task('sass', function(){
 	return gulp.src(src.mainSassFile)
 		.pipe(plumber(logError))
 		.pipe(sass(config))
-		.pipe(prefix(["last 1 version", "> 1%", "ie 8"], { cascade: true }))
+		.pipe(prefix(["last 2 version", "> 1%", "ie 8"], { cascade: true }))
 		.pipe(gulp.dest(output.dir.css))
 		.pipe(connect.reload());
 });

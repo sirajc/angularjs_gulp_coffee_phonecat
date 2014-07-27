@@ -83,6 +83,4 @@ ul.specs
       dd {{phoneDetail.phone.camera.primary}}
       dt Features
       dd {{phoneDetail.phone.camera.features.join(', ')}}
-  li
-    span Additional Features
-    dd {{phoneDetail.phone.additionalFeatures}}
+  phone-spec(title="Additional Features", listing="phoneDetail.phone.additionalFeatures")

@@ -2,17 +2,16 @@ ThisIsNgAnnotateHack = 'IgnoreThisLine'
 
 ### @ngInject ###
 PhoneDetailController = ($routeParams, Phone) ->
-  detail = @
-  detail.phone = Phone.get {phoneId: $routeParams.phoneId}, (phone) ->
-    detail.mainImageUrl = phone.images[0]
+  @phone = Phone.get {phoneId: $routeParams.phoneId}, (phone) ->
+    @mainImageUrl = phone.images[0]
     return
 
-  detail.setImage = (imageUrl) ->
-    detail.mainImageUrl = imageUrl
+  @setImage = (imageUrl) ->
+    @mainImageUrl = imageUrl
     return
   return
 
-angular.module 'phone.detail', ['common.checkmark']
+angular.module 'phone.detail', ['common.checkmark', 'phone.detail.directive']
   .controller 'PhoneDetailController', PhoneDetailController
 
 

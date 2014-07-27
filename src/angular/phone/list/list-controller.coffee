@@ -6,6 +6,6 @@ PhoneListController = (Phone) ->
   @orderProp = 'age'
   return
 
-angular.module 'phone.list', ['list.animation', 'list.service']
+angular.module 'phone.list', ['list.animation', 'list.service', 'phone.directive']
   .controller('PhoneListController', PhoneListController)
 

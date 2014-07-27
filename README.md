@@ -1,6 +1,8 @@
 ## Gulp AngularJS CoffeeScript and ngClassify
 
-AngularJS tutorials provide a good phonecat application to learn AngularJS. We have re-written it in cool `CoffeeScript` with `ng-classify`, `SASS` and awesome `gulp` to build, pre-process, watch and everything
+AngularJS tutorials provide a good phonecat application to learn AngularJS. We have re-written it in cool `CoffeeScript`, `SASS` and awesome `gulp` to build, pre-process, watch and everything
+
+Run tests using gulp-karma and gulp-protractor
 
 ## Copyright and license
 

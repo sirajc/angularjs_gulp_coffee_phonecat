@@ -1,0 +1,6 @@
+ul.phones
+    li(ng-repeat="phone in phonelist | filter:query | orderBy:order").thumbnail.phone-listing
+        a(href="#/phones/{{phone.id}}").thumb
+            img(ng-src="{{phone.imageUrl}}")
+        a(href="#/phones/{{phone.id}}") {{phone.name}}
+        p {{phone.snippet}}
